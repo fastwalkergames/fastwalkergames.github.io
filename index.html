@@ -252,7 +252,7 @@ form.addEventListener("submit", async (e) => {
     catch (corsErr) { r = await fetch(url, { method: "POST", body: data, mode: "no-cors" }); }
     if (r.type !== "opaque" && !r.ok) throw new Error(r.status);
     form.reset(); form.querySelectorAll('input[name="game"]').forEach(i => i.checked = true);
-    say("Done. Check your inbox and confirm the email.", "ok");
+    say("Done. You're on the list.", "ok");
   } catch (err) {
     say("Couldn't send right now. Try again in a minute.", "err");
   } finally { btn.disabled = false; }
