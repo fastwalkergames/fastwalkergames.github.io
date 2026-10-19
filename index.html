@@ -81,7 +81,7 @@ button:disabled { opacity: .6; cursor: default; }
 
 /* Games */
 .games { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-.game { border-top: 3px solid var(--tint); background: var(--sheet); display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+.game { border-top: 3px solid var(--tint); background: var(--sheet); display: grid; grid-template-rows: auto auto 1fr; min-width: 0; }
 .game.u { --tint: var(--steel); }
 .game.b { --tint: var(--rye); }
 .shot { aspect-ratio: 1 / 1; max-width: 100%; background: #000; overflow: hidden; }
@@ -90,6 +90,19 @@ button:disabled { opacity: .6; cursor: default; }
 .kind { font: 500 12px/1.3 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--tint); margin: 0; }
 h2 { font: 900 clamp(38px, 5vw, 54px)/.95 var(--f-display); text-transform: uppercase; letter-spacing: .02em; margin: 0; }
 .body p { margin: 0; max-width: 36em; }
+.thumbs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px; margin-top: 3px; }
+.thumbs .shot { aspect-ratio: 1 / 1; }
+.do { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 8px; }
+.do li { display: grid; grid-template-columns: 1.4em minmax(0, 1fr); gap: 4px; font-weight: 500; }
+.do li::before { content: "▸"; color: var(--tint); }
+.about { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 16px 40px; padding-block: 48px 8px; align-items: start; }
+.about h3 { font: 900 30px/1 var(--f-display); text-transform: uppercase; letter-spacing: .03em; margin: 0; color: var(--wheat); }
+.about p { margin: 0; max-width: 40em; color: var(--paper); }
+.again { margin-top: 40px; border: 1px solid var(--line); background: var(--sheet); padding: 22px 24px; display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; justify-content: space-between; }
+.again p { margin: 0; font: 900 clamp(24px, 3.4vw, 34px)/1.05 var(--f-display); text-transform: uppercase; letter-spacing: .02em; }
+.btn { display: inline-block; font: 900 22px/1 var(--f-display); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); background: var(--wheat); padding: 16px 22px; text-decoration: none; }
+.btn:hover { background: #f0c66a; }
+@media (max-width: 820px) { .about { grid-template-columns: minmax(0, 1fr); padding-block: 36px 0; } }
 .facts { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 6px 0 0; }
 .facts li { font: 500 12px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; border: 1px solid var(--line); padding: 7px 9px; color: var(--muted); }
 
@@ -147,10 +160,21 @@ h2 { font: 900 clamp(38px, 5vw, 54px)/.95 var(--f-display); text-transform: uppe
         <video src="media/undeclared.mp4" poster="media/undeclared.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Crates being packed into a ship's hold, prices changing as each crate lands"></video>
         <img class="poster" src="media/undeclared.jpg" alt="A packed cargo hold with price tags on each crate">
       </div>
+      <div>
+        <div class="thumbs">
+          <div class="shot"><video src="media/u-storm.mp4" poster="media/u-storm.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A storm hits the hold and every crate loses 45 percent"></video><img class="poster" src="media/u-storm.jpg" alt="Storm: every crate in the hold marked minus 45 percent"></div>
+          <div class="shot"><video src="media/u-dog.mp4" poster="media/u-dog.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A customs officer with a dog finds hidden cargo"></video><img class="poster" src="media/u-dog.jpg" alt="Customs officer with a dog: caught"></div>
+        </div>
+      </div>
       <div class="body">
         <p class="kind">Cargo-packing roguelite</p>
         <h2 id="t-u">UNDECLARED</h2>
-        <p>You bought the ship on credit. Every trip you buy crates, pack them into the hold and sail past customs. Each crate changes its neighbour's price, fuel grows with weight, and inspectors check the top row. One more crate is not always the right call.</p>
+        <p>You bought the ship on credit. Now every trip has to pay for it, and greed is the whole game.</p>
+        <ul class="do">
+          <li>Buy crates in port and pack them into the hold.</li>
+          <li>Each crate changes its neighbour's price. Fuel grows with weight.</li>
+          <li>Customs searches from the top down. Hide what they shouldn't find.</li>
+        </ul>
         <ul class="facts"><li>Roguelite</li><li>Puzzle</li><li>Coming to Steam</li></ul>
       </div>
     </article>
@@ -160,14 +184,35 @@ h2 { font: 900 clamp(38px, 5vw, 54px)/.95 var(--f-display); text-transform: uppe
         <video src="media/blackrye.mp4" poster="media/blackrye.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A peasant with a pitchfork fighting a scarecrow reaper in a wheat field"></video>
         <img class="poster" src="media/blackrye.jpg" alt="A peasant with a pitchfork facing a scarecrow reaper">
       </div>
+      <div>
+        <div class="thumbs">
+          <div class="shot"><video src="media/b-dress.mp4" poster="media/b-dress.jpg" autoplay muted loop playsinline preload="metadata" aria-label="The peasant puts on a helmet, sword and shield one piece at a time"></video><img class="poster" src="media/b-dress.jpg" alt="The peasant in a helmet with a sword"></div>
+          <div class="shot"><video src="media/b-d20.mp4" poster="media/b-d20.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A d20 initiative roll of 20 against 4, then the first strike"></video><img class="poster" src="media/b-d20.jpg" alt="Initiative dice: 20 against 4"></div>
+        </div>
+      </div>
       <div class="body">
         <p class="kind">Folk-horror tactics roguelike</p>
         <h2 id="t-b">Black Rye</h2>
-        <p>A village, a field of rye, and things that walk out of it at night. Turn-based fights on a grid with grandpa's pitchfork, a d20 and whatever the field gives you: water, fire, beehives. Hit the wrong hive and the swarm picks no sides.</p>
+        <p>Harvest time, and something walks out of the rye. You go after it with grandpa's pitchfork.</p>
+        <ul class="do">
+          <li>Start as a peasant. Become a knight, hunter or mage by what you find and wear.</li>
+          <li>Up to four companions join on the road, and you gear them too.</li>
+          <li>A d20 decides who moves first. After that, no misses: every hit is shown before you make it.</li>
+        </ul>
         <ul class="facts"><li>Tactics</li><li>Roguelike</li><li>Coming to Steam</li></ul>
       </div>
     </article>
   </main>
+
+  <section class="about" aria-labelledby="t-who">
+    <h3 id="t-who">Who makes this</h3>
+    <p>I'm Dmytro, a solo developer from Ukraine. I design, code and post both games myself, and short clips of them go up most days on TikTok, YouTube and Instagram.</p>
+  </section>
+
+  <section class="again">
+    <p>Want the Steam link the day it goes up?</p>
+    <a class="btn" href="#signup" id="to-form">Notify me</a>
+  </section>
 
   <footer class="foot">
     <span>© 2026 FastWalker Games</span>
@@ -182,6 +227,11 @@ const KIT = { formId: "10066908", tags: { undeclared: "24792045", blackrye: "247
 const form = document.getElementById("signup");
 const msg = document.getElementById("msg");
 const btn = document.getElementById("send");
+document.getElementById("to-form").addEventListener("click", (e) => {
+  e.preventDefault();
+  form.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+  setTimeout(() => form.email_address.focus({ preventScroll: true }), 400);
+});
 const say = (text, cls) => { msg.textContent = text; msg.className = "msg " + (cls || ""); };
 
 form.addEventListener("submit", async (e) => {
